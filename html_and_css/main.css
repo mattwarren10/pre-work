@@ -1,0 +1,27 @@
+body {
+	font-family: sans-serif;
+	background-color: #cdf;
+}
+
+a:link,
+a:visited {
+	color: #0822ff;
+}
+
+a:hover {
+	color: #222;
+}
+
+h1 {
+	color: #13c;
+}
+
+table {
+	color: #123;
+	background-color: #abc;
+}
+
+article {
+	width: 1000px;
+	height: 1000px;
+}
