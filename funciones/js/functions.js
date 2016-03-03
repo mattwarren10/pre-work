@@ -244,17 +244,16 @@ function beautifyLetters( array )
 {
 	//It receives an array with numbers and letters and returns it with uppercase vowels and lowercase consonants. Numbers remain unchanged
 	//Example: beautifyLetters([1,5,7,'a','J',p,'E']) returns [1,5,7,'A','j',p,'E']
-	var new_array;
+	var vowels = [ "a", "e", "i", "o", "u" ];
 	for (i = 0; i < array.length; i++ ) {
-	    if ( typeof i === 'string' ) {
-	        console.log( array[i].toUpperCase() );
+	    if ( vowels.indexOf(array[i]) !== -1 ) {
+	        array[i] = array[i].toUpperCase();
 	    }
-	   // else if ( array[i] !== /aeiou/ && array[i] !== /0-9/) {
-	   //     array[i].toLowerCase();
-	   // }  
 	}
 	return array;
+	
 }
+
 
 
 function beautifyNumbers( array )
@@ -266,6 +265,15 @@ function beautifyNumbers( array )
 	// 9956 = 2 because 9+9+5+6 = 29 -> 2+9 = 11 -> 1+1 = 2
 	// 793 = 1 because 7+9+3 = 19 -> 1+9 = 10 -> 1+0 = 1
 	//Example: beautifyNumbers([23,59, 4,'A','b']) returns [5, 5, 4, 'A', 'b']
+	var added_numbers;
+	for ( i = 0; i < array.length; i++) {
+	    if (typeof(array[i]) === 'number'){
+	        string = array[i];
+	    for ( j = 0 ; i < string.length; j++)
+	        added_numbers += string[j];
+	    }
+	}
+	return added_numbers
 }
 
 function sortArray( array )
@@ -281,7 +289,7 @@ function arrayToString( array )
 	//Example: arrayToString([1, 4, 5, 5, 'A', 'b', 'E', 'j']) returns "1455AbEj"
 // 	var joined_array = array.join("");
 // 	return joined_array
-// }
+}
 
 console.log(arrayAwesomenator(["a", 6, "B", "F", "*", 8, 78, "J" ]) === "668Abfj");
 console.log(arrayAwesomenator(["*", "j", 6, "A", "F", "*", 8, "C", "b", "a", 78, "J", 43523, 1111, "r", "q", "y" ]) === "46688AAbcfjjqry");
