@@ -244,10 +244,13 @@ function beautifyLetters( array )
 {
 	//It receives an array with numbers and letters and returns it with uppercase vowels and lowercase consonants. Numbers remain unchanged
 	//Example: beautifyLetters([1,5,7,'a','J',p,'E']) returns [1,5,7,'A','j',p,'E']
-	var vowels = [ "a", "e", "i", "o", "u" ];
+	var vowels = [ "a", "e", "i", "o", "u", "A", "E", "I", "O", "U" ];
 	for (i = 0; i < array.length; i++ ) {
 	    if ( vowels.indexOf(array[i]) !== -1 ) {
 	        array[i] = array[i].toUpperCase();
+	    }
+	    else if (  vowels.indexOf(array[i]) === -1 && typeof( array[i] ) === 'string' ) { 
+	        array[i] = array[i].toLowerCase();
 	    }
 	}
 	return array;
