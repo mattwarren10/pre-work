@@ -283,6 +283,8 @@ function sortArray( array )
 {
 	//It receives an array with numbers and letters and returns it with its items sorted. Numbers on one side and letters on the other.
 	//Example: sortArray([5,5, 4, 1, 'j', A','b', 'E']) returns [1, 4, 5, 5, 'A', 'b', 'E', 'j']
+	return array.sort();
+
 }
 
 
@@ -292,6 +294,10 @@ function arrayToString( array )
 	//Example: arrayToString([1, 4, 5, 5, 'A', 'b', 'E', 'j']) returns "1455AbEj"
 // 	var joined_array = array.join("");
 // 	return joined_array
+
+	var str;
+    str = array.join('');
+    return str;
 }
 
 console.log(arrayAwesomenator(["a", 6, "B", "F", "*", 8, 78, "J" ]) === "668Abfj");
