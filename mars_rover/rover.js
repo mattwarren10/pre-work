@@ -1,29 +1,18 @@
-//    10 x 10 grid
+//Allows user to move the rover and change its direction by entering f, b, r, l as directions.
+commands = window.prompt("Enter commands")
 
-// initial position 0,0
-// initially facing N
-
-
-// Actions for rover
-// forwards
-// backwards
-// turn left
-// turn right
+//Takes in commands
+splitCommands = []
 
 
-// CMD + SHIFT + D    --->    Duplicate current line
-// CMD + CTRL + UP    --->   Move up
-// CMD + CTRL + DOWN  --->   Move down
-
-
-
+//The rover
 var myRover = {
   //         0  1
   position: [0, 0],
   direction: 'N'
 };
 
-
+//Move rover forward
 function goForward(rover) {
   switch(rover.direction) {
     case 'N':
@@ -39,7 +28,7 @@ function goForward(rover) {
       rover.position[0]--
       break;
   };
-
+  //Logs rover's position each step.
   console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]")
 }
 
@@ -59,10 +48,11 @@ function goBackward(rover) {
       rover.position[0]++
       break;
   };
+  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]")
 }
 
 
-function turnLeft (rover) {
+function turnLeft(rover) {
   switch(rover.direction) {
     case 'N':
       rover.direction = 'W';
@@ -77,9 +67,10 @@ function turnLeft (rover) {
       rover.direction = 'N';
       break;
   } 
+  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]")
 }
 
-function turnRight (rover) {
+function turnRight(rover) {
   switch(rover.direction) {
     case 'N':
       rover.direction = 'E';
@@ -94,29 +85,28 @@ function turnRight (rover) {
       rover.direction = 'S';
       break;
   };
+  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]")
   
 }
 
+for (i=0; i < commands.length; i++) {
+  splitCommands += commands[i].split(', ')  
+}
 
+for (i=0; i < splitCommands.length; i++) {
+  if (splitCommands[i] === "f") {
+    goForward(myRover);
 
+  } else if (splitCommands[i] === "r") {
+    turnLeft(myRover)
+  } else if (splitCommands[i] === "b") {
+    goBackward(myRover)
+  } else if (splitCommands[i] === "l") {
+    turnLeft(myRover)
+  } else {
+    false
+  }
 
+}
 
-goForward(myRover);
-goForward(myRover);
-
-
-//                      Y coordinate
-//                            |
-console.log( myRover.position[1] === 2 );
-
-
-
-turnLeft(myRover);
-console.log( myRover.direction === 'W' );
-
-turnLeft(myRover);
-console.log( myRover.direction === 'S' );
-
-
-turnRight(myRover)
-console.log( myRover.direction === 'W' );
+console.log(splitCommands)
